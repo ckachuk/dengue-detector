@@ -19,7 +19,7 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 
 func NewTemplates() *Template {
 	return &Template{
-		templates: template.Must(template.ParseGlob("views/*.html")),
+		templates: template.Must(template.ParseGlob("public/views/*.html")),
 	}
 }
 type Data struct{
@@ -30,10 +30,11 @@ func main(){
 	e := echo.New()
 	e.Renderer = NewTemplates()
 	e.Use(middleware.Logger())
-	template := "index.html"
-
+	template := "index"
+	e.Static("/public", "public")
+	
 	e.GET("/", func(c echo.Context) error {
-			return c.Render(http.StatusOK, template, &Data{hello: "world"})
+		return c.Render(http.StatusOK, template, &Data{hello: "world"})
 	})
 	e.Logger.Fatal(e.Start(":8080"))
 }
