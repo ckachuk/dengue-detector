@@ -26,15 +26,31 @@ type Data struct{
 	hello string
 }
 
+type Fullname struct{
+	FirstName string
+	LastName string
+}
+
 func main(){
 	e := echo.New()
 	e.Renderer = NewTemplates()
 	e.Use(middleware.Logger())
-	template := "index"
 	e.Static("/public", "public")
-	
+	fullname:= &Fullname{FirstName: "", LastName: ""}
 	e.GET("/", func(c echo.Context) error {
-		return c.Render(http.StatusOK, template, &Data{hello: "world"})
+		return c.Render(http.StatusOK, "index", &Data{hello: "world"})
+	})
+	
+	e.POST("/", func(c echo.Context) error {
+		firstName:= c.FormValue("firstName")
+		lastName := c.FormValue("lastName")
+		fullname.FirstName = firstName
+		fullname.LastName = lastName
+		return c.Render(http.StatusOK, "diagnoseForm", &Data{hello:"world"})
+	})
+
+	e.POST("/diagnoseForm", func(c echo.Context) error {
+		return c.Render(http.StatusOK, "diagnosticReport", fullname)
 	})
 	e.Logger.Fatal(e.Start(":8080"))
 }

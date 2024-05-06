@@ -1,0 +1,190 @@
+{{block "diagnoseForm" .}}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button hx-get="/" hx-target="body" type="button" class="btn btn-dark" style="margin-top: 15px; margin-bottom: 15px; margin-left: 20px;">
+        <i class="bi bi-arrow-left"></i>Volver
+    </button>
+    <div class="card container" style="width: 90%; background-color: #212529; color: whitesmoke;">
+            <img src="/public/images/sintomas.jpg" class="card-img-top" alt="..." style="margin-top: 10px;">
+            <div class="card-body row">
+                <div class="col">
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="agitation">
+                        <label class="form-check-label" for="agitation">
+                           Agitacion.
+                        </label>
+                    </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="fatigue">
+                        <label class="form-check-label" for="fatigue">
+                            Cansacio.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="yellowMocuous">
+                        <label class="form-check-label" for="yellowMocuous">
+                            Color amarillo en mucosas, piel y/o ojos
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="nasalCongestion">
+                        <label class="form-check-label" for="nasalCongestion">
+                            Congestion y secrecion nasal.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="diarrhea">
+                        <label class="form-check-label" for="diarrhea">
+                            Diarrea.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="abdominalDistention">
+                        <label class="form-check-label" for="abdominalDistention">
+                            Distension abdominal.
+                        </label>
+                    </div> 
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="abdominalPain">
+                        <label class="form-check-label" for="abdominalPain">
+                           Dolor abdominal intenso.
+                        </label>
+                    </div>     
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="painEyes">
+                        <label class="form-check-label" for="painEyes">
+                            Dolor detrás de los ojos.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="hypochondrialPain">
+                        <label class="form-check-label" for="hypochondrialPain">
+                            Dolor en el hipocondrio derecho(debajo de las costillas).
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="headache">
+                        <label class="form-check-label" for="headache">
+                            Dolor de cabeza.
+                        </label>
+                    </div>  
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="soreThroat">
+                        <label class="form-check-label" for="soreThroat">
+                            Dolor de garganta.
+                        </label>
+                    </div>                    
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="musclePain">
+                        <label class="form-check-label" for="musclePain">
+                            Dolor muscular, articular, óseo
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="sneezing">
+                        <label class="form-check-label" for="sneezing">
+                            Estornudos.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="fever">
+                        <label class="form-check-label" for="fever">
+                            Fiebre
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="lymphNodes">
+                        <label class="form-check-label" for="lymphNodes">
+                            Ganglios inflamados.
+                        </label>
+                    </div>   
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="bleeding">
+                        <label class="form-check-label" for="bleeding">
+                            Hemorragia en las encías o la nariz.
+                        </label>
+                    </div>                  
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="whiteStools">
+                        <label class="form-check-label" for="whiteStools">
+                            Heces blancas o amarrillo claro
+                        </label>
+                    </div>   
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="skinSpots">
+                        <label class="form-check-label" for="skinSpots">
+                            Manchas en la piel
+                        </label>
+                    </div> 
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="nausea">
+                        <label class="form-check-label" for="nausea">
+                            Náuseas.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="brownUrine">
+                        <label class="form-check-label" for="brownUrine">
+                            Orina color “coca cola”
+                        </label>
+                    </div>
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="weightLoss">
+                        <label class="form-check-label" for="weightLoss">
+                            Perdida de peso.
+                        </label>
+                    </div>  
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="acceleratedBreathing">
+                        <label class="form-check-label" for="acceleratedBreathing">
+                            Respiración acelerada.
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="bloodInStool">
+                        <label class="form-check-label" for="bloodInStool">
+                            Sangre en heces.
+                        </label>
+                    </div> 
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="cough">
+                        <label class="form-check-label" for="cough">
+                            Tos.
+                        </label>
+                    </div> 
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="bloodyVomit">
+                        <label class="form-check-label" for="bloodyVomit">
+                            Vómitos con sangre.
+                        </label>
+                    </div>   
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="persistentVomiting">
+                        <label class="form-check-label" for="persistentVomiting">
+                            Vómitos persistentes.
+                        </label>
+                    </div>
+                </div>
+                </div>
+            </div>
+             <div class="container d-flex justify-content-center" style="margin-top: 10px; margin-bottom: 10px;">
+                <button type="button" hx-post="/diagnoseForm" hx-target="body" class="btn btn-dark">Consultar</button>
+              </div>   
+        </div>
+    </div>
+</body>
+</html>
+{{end}}

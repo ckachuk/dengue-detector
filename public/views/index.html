@@ -10,127 +10,27 @@
     <link rel="stylesheet" href="/public/css/style.css"/>
     <title>Document</title>
 </head>
-<body style="height: 100%;">
-    <button type="button" class="btn btn-dark" style="margin-top: 15px; margin-bottom: 15px; margin-left: 20px;">
-        <i class="bi bi-arrow-left"></i>Volver
-      </button>
-    <div class="d-flex align-items-center flex-wrap" >
-        {{template "patientSymptomCard" . }}
-    </div>
-    <!--{{template "nameUserForm" .}}-->
+<body style="height: 100%;" hx-boost="true" >
+    {{template "nameUserForm" .}}
 </body>
 </html>
 {{end}}
 
 
 {{block "nameUserForm" .}}
-<div class="d-flex align-items-center justify-content-center flex-column" style="height: 100%;">
-    <div class="card container" style="width: 35%; padding-top: 10px;">
+<form class="d-flex align-items-center justify-content-center flex-column" hx-target="body" style="height: 100%;">
+    <div class="card container" style="width: 35%; padding-top: 10px; background-color: #212529;">
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Ingresar</span>
-            <input type="text" class="form-control" placeholder="Nombre" aria-label="name" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="Nombre" name="firstName" aria-describedby="basic-addon1">
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Ingresar</span>
-            <input type="text" class="form-control" placeholder="Apellido" aria-label="lastname" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="Apellido" name="lastName" aria-label="lastname" aria-describedby="basic-addon1">
         </div>    
     </div>
-    <div class="d-flex justify-content-center" style="margin-top: 10px;">
-        <button type="button" class="btn btn-light">Enviar</button>
+    <div  class="d-flex justify-content-center"  style="margin-top: 10px;">
+        <button type="submit" class="btn btn-dark" hx-post="/" hx-swap="outerHTML">Enviar</button>
     </div>            
-</div>
-{{end}}
-
-{{block "patientSymptomCard" .}}
-<div class="card container" style="width: 90%;">
-    <img src="/public/images/sintomas.jpg" class="card-img-top" alt="..." style="margin-top: 10px;">
-    <div class="card-body row">
-        <div class="col">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="fever">
-                <label class="form-check-label" for="fever">
-                    Fiebre
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="painEyes">
-                <label class="form-check-label" for="painEyes">
-                    Dolor detrás de los ojos.
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="musclePain">
-                <label class="form-check-label" for="musclePain">
-                    Dolor muscular, articular, óseo
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="nausea">
-                <label class="form-check-label" for="nausea">
-                    Náuseas.
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="vomit">
-                <label class="form-check-label" for="vomit">
-                    Vómitos.
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="skinSpots">
-                <label class="form-check-label" for="skinSpots">
-                    Manchas en la piel
-                </label>
-            </div> 
-        </div>
-        <div class="col">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="nasalCongestion">
-                <label class="form-check-label" for="nasalCongestion">
-                    Congestion nasal.
-                </label>
-            </div>   
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="fatigue">
-                <label class="form-check-label" for="fatigue">
-                    Cansacio.
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="cough">
-                <label class="form-check-label" for="cough">
-                    Tos.
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="soreThroat">
-                <label class="form-check-label" for="soreThroat">
-                    Dolor de garganta.
-                </label>
-            </div>    
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="headache">
-                <label class="form-check-label" for="headache">
-                    Dolor de cabeza.
-                </label>
-            </div> 
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="sneezing">
-                <label class="form-check-label" for="sneezing">
-                    Estornudos.
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="lymphNodes">
-                <label class="form-check-label" for="lymphNodes">
-                    Agrandamiento de ganglios linfáticos.
-                </label>
-            </div>   
-        </div>
-        </div>
-    </div>
-     <div class="container d-flex justify-content-center" style="margin-top: 10px; margin-bottom: 10px;">
-        <button type="button" class="btn btn-dark">Consultar</button>
-      </div>   
-    </div>
+</form>
 {{end}}
