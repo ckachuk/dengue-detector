@@ -9,42 +9,42 @@
     <button hx-get="/" hx-target="body" type="button" class="btn btn-dark" style="margin-top: 15px; margin-bottom: 15px; margin-left: 20px;">
         <i class="bi bi-arrow-left"></i>Volver
     </button>
-    <div class="card container" style="width: 90%; background-color: #212529; color: whitesmoke;">
+    <form class="card container" style="width: 90%; background-color: #212529; color: whitesmoke;">
             <img src="/public/images/sintomas.jpg" class="card-img-top" alt="..." style="margin-top: 10px;">
             <div class="card-body row">
                 <div class="col">
                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="agitation">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="agitation"  id="agitation">
                         <label class="form-check-label" for="agitation">
                            Agitacion.
                         </label>
                     </div>
                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="fatigue">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="fatigue"  id="fatigue">
                         <label class="form-check-label" for="fatigue">
-                            Cansacio.
+                            Cansancio.
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="yellowMocuous">
-                        <label class="form-check-label" for="yellowMocuous">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="jaundice"  id="jaundice">
+                        <label class="form-check-label" for="jaundice">
                             Color amarillo en mucosas, piel y/o ojos
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="nasalCongestion">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="nasalCongestion" id="nasalCongestion">
                         <label class="form-check-label" for="nasalCongestion">
                             Congestion y secrecion nasal.
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="diarrhea">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="diarrhea" id="diarrhea">
                         <label class="form-check-label" for="diarrhea">
                             Diarrea.
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="abdominalDistention">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="abdominalDistention" id="abdominalDistention">
                         <label class="form-check-label" for="abdominalDistention">
                             Distension abdominal.
                         </label>
@@ -52,31 +52,31 @@
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="abdominalPain">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="abdominalPain" id="abdominalPain">
                         <label class="form-check-label" for="abdominalPain">
                            Dolor abdominal intenso.
                         </label>
                     </div>     
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="painEyes">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="painEyes" id="painEyes">
                         <label class="form-check-label" for="painEyes">
                             Dolor detrás de los ojos.
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="hypochondrialPain">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="rightHypochondriumPain" id="rightHypochondriumPain">
                         <label class="form-check-label" for="hypochondrialPain">
                             Dolor en el hipocondrio derecho(debajo de las costillas).
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="headache">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="headache" id="headache">
                         <label class="form-check-label" for="headache">
                             Dolor de cabeza.
                         </label>
                     </div>  
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="soreThroat">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="soreThroat" id="soreThroat">
                         <label class="form-check-label" for="soreThroat">
                             Dolor de garganta.
                         </label>
@@ -84,31 +84,37 @@
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="musclePain">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="musclePain" id="musclePain">
                         <label class="form-check-label" for="musclePain">
                             Dolor muscular, articular, óseo
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="sneezing">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="sneezing" id="sneezing">
                         <label class="form-check-label" for="sneezing">
                             Estornudos.
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="fever">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="feverMinor39" id="feverMinor39">
                         <label class="form-check-label" for="fever">
-                            Fiebre
+                            Fiebre menor 39 
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="lymphNodes">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="fever39" id="fever39">
+                        <label class="form-check-label" for="fever">
+                            Fiebre igual o mayor 39 
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="lymphNodes" id="lymphNodes">
                         <label class="form-check-label" for="lymphNodes">
                             Ganglios inflamados.
                         </label>
                     </div>   
                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="bleeding">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="bleeding" id="bleeding">
                         <label class="form-check-label" for="bleeding">
                             Hemorragia en las encías o la nariz.
                         </label>
@@ -116,31 +122,31 @@
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="whiteStools">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="whiteStools" id="whiteStools">
                         <label class="form-check-label" for="whiteStools">
                             Heces blancas o amarrillo claro
                         </label>
                     </div>   
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="skinSpots">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="skinSpots" id="skinSpots">
                         <label class="form-check-label" for="skinSpots">
                             Manchas en la piel
                         </label>
                     </div> 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="nausea">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="nausea" id="nausea">
                         <label class="form-check-label" for="nausea">
                             Náuseas.
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="brownUrine">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="brownUrine" id="brownUrine">
                         <label class="form-check-label" for="brownUrine">
                             Orina color “coca cola”
                         </label>
                     </div>
                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="weightLoss">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="weightLoss" id="weightLoss">
                         <label class="form-check-label" for="weightLoss">
                             Perdida de peso.
                         </label>
@@ -148,43 +154,41 @@
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="acceleratedBreathing">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="acceleratedBreathing" id="acceleratedBreathing">
                         <label class="form-check-label" for="acceleratedBreathing">
                             Respiración acelerada.
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="bloodInStool">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="bloodInStool" id="bloodInStool">
                         <label class="form-check-label" for="bloodInStool">
                             Sangre en heces.
                         </label>
                     </div> 
                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="cough">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="cough" id="cough">
                         <label class="form-check-label" for="cough">
                             Tos.
                         </label>
                     </div> 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="bloodyVomit">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="bloodyVomit" id="bloodyVomit">
                         <label class="form-check-label" for="bloodyVomit">
                             Vómitos con sangre.
                         </label>
                     </div>   
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="persistentVomiting">
+                        <input class="form-check-input" type="checkbox" name="symptoms" value="persistentVomiting" id="persistentVomiting">
                         <label class="form-check-label" for="persistentVomiting">
                             Vómitos persistentes.
                         </label>
                     </div>
                 </div>
-                </div>
-            </div>
-             <div class="container d-flex justify-content-center" style="margin-top: 10px; margin-bottom: 10px;">
-                <button type="button" hx-post="/diagnoseForm" hx-target="body" class="btn btn-dark">Consultar</button>
+             <div class="container d-flex justify-content-center" name="symptoms" style="margin-top: 10px; margin-bottom: 10px;">
+                <button type="submit" hx-post="/diagnoseForm" hx-target="body" class="btn btn-light">Consultar</button>
               </div>   
-        </div>
-    </div>
+            </div>
+        </form>
 </body>
 </html>
 {{end}}
