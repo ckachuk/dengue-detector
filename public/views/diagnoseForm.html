@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Detector de enfermedades</title>
 </head>
 <body>
     <button hx-get="/" hx-target="body" type="button" class="btn btn-dark" style="margin-top: 15px; margin-bottom: 15px; margin-left: 20px;">
         <i class="bi bi-arrow-left"></i>Volver
     </button>
+    {{if .FieldsAreMissigAlert}}
+    <div class="container d-flex align-items-center justify-content-center alert alert-danger" role="alert" style="width: 25%;">
+        <i class="bi bi-exclamation-triangle-fill" style="margin-right:5px;"></i>{{.DataMissing}}  
+    </div>
+    {{end}}
     <form class="card container" style="width: 90%; background-color: #212529; color: whitesmoke;">
             <img src="/public/images/sintomas.jpg" class="card-img-top" alt="..." style="margin-top: 10px;">
             <div class="card-body row">
@@ -116,7 +121,7 @@
                      <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="symptoms" value="bleeding" id="bleeding">
                         <label class="form-check-label" for="bleeding">
-                            Hemorragia en las encías o la nariz.
+                            Sangrado en las encías o la nariz.
                         </label>
                     </div>                  
                 </div>

@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Detector de enfermedades</title>
 </head>
 <body>
     <button hx-get="/" hx-target="body" type="button" class="btn btn-dark" style="margin-top: 15px; margin-bottom: 15px; margin-left: 20px;">
         <i class="bi bi-house"></i>  Inicio
     </button>
     <div class="card container d-flex align-items-center" style="width: 90%; background-color: #212529; color: whitesmoke; padding-bottom: 30px;">
-        <img src="/public/images/report.png" class="card-img-top" alt="..." style=" max-width: 15%; max-height: 15%; margin-top: 10px;">
-        <h1>Reporte</h1>
-        <h2>Nombre: {{.Fullname.FirstName}}</h2>
-        <h2>Apellido: {{.Fullname.LastName}}</h2> 
-        <h2>Sintomas marcados:</h2>
-        <h2>Los sintomas corresponden con: {{.Desease}}</h2>
+        <img src="/public/images/report.png" class="card-img-top" alt="..." style=" max-width: 15%; max-height: 15%; margin-top: 5px;">
+        <h1 style="margin-top: 10px;">Reporte</h1>
+        <h2 style="margin-top: 10px;">Nombre: {{.Fullname.FirstName}}</h2>
+        <h2 style="margin-top: 10px;">Apellido: {{.Fullname.LastName}}</h2> 
+        <h2 style="margin-top: 10px;">Sintomas marcados: {{.SymptomsMarked}}</h2>
+        {{if eq .Desease ""}}
+            <h2 style="margin-top: 10px;">Los sintomas no son suficientes para realizar un diagnostico</h2>
+        {{else}}
+            <h2 style="margin-top: 10px;">Los sintomas corresponden con: {{.Desease}}</h2>
+        {{end}}
     </div>
 </body>
 </html>

@@ -2,6 +2,7 @@ package main
 
 import (
 	"dengue-detector/pkg"
+	"fmt"
 	"html/template"
 	"io"
 	"net/http"
@@ -24,7 +25,8 @@ func NewTemplates() *Template {
 	}
 }
 type Data struct{
-	hello string
+	FieldsAreMissigAlert bool
+	DataMissing string
 }
 
 type Fullname struct{
@@ -45,20 +47,34 @@ func main(){
 	e.Static("/public", "public")
 	fullname:= &Fullname{FirstName: "", LastName: ""}
 	e.GET("/", func(c echo.Context) error {
-		return c.Render(http.StatusOK, "index", &Data{hello: "world"})
+		return c.Render(http.StatusOK, "index", &Data{FieldsAreMissigAlert: false})
 	})
 	
 	e.POST("/", func(c echo.Context) error {
 		firstName:= c.FormValue("firstName")
 		lastName := c.FormValue("lastName")
+		if firstName == "" || lastName == ""{
+			dataMissing:= ""
+			 if firstName=="" && lastName==""{
+				dataMissing = "Falta ingresar el nombre y apellido"
+			}else if firstName=="" {
+				dataMissing= "Falta ingresar el nombre"
+			}else{
+				dataMissing = "Falta ingresar el apellido"
+			}
+			return c.Render(http.StatusOK,"index", &Data{FieldsAreMissigAlert: true, DataMissing: dataMissing} )
+		}
 		fullname.FirstName = firstName
 		fullname.LastName = lastName
-		return c.Render(http.StatusOK, "diagnoseForm", &Data{hello:"world"})
+		return c.Render(http.StatusOK, "diagnoseForm", &Data{FieldsAreMissigAlert: false, DataMissing: ""})
 	})
 
 	e.POST("/diagnoseForm", func(c echo.Context) error {
 		c.Request().ParseForm()
 		values:=c.Request().Form["symptoms"]
+		if len(values) == 0 {
+			return c.Render(http.StatusOK,"diagnoseForm", &Data{FieldsAreMissigAlert: true, DataMissing: "Falta seleccionar al menos un síntoma"} )
+		}
 		desease := ""
 		dengue:= pkg.Dengue.Detect(values, 300)
 		hepatitis := pkg.Hepatitis.Detect(values, 200)
@@ -77,8 +93,10 @@ func main(){
 			desease = "Problemas respiratorios"
 		}else if respiratoryProblems && desease!=""{
 			desease = desease + ", Problemas respiratorios"
-		}	
-		return c.Render(http.StatusOK, "diagnosticReport", &Report{Fullname: Fullname{FirstName: fullname.FirstName, LastName: fullname.LastName}, Desease:desease, SymptomsMarked: ""})
+		}
+		symptomsMarked := pkg.SymptomsToSpanish(values)	
+		return c.Render(http.StatusOK, "diagnosticReport", &Report{Fullname: Fullname{FirstName: fullname.FirstName, LastName: fullname.LastName}, Desease:desease, SymptomsMarked: symptomsMarked})
 	})
+	fmt.Println("Abrir el navegador y ingresar esta URL http://localhost:8080/")
 	e.Logger.Fatal(e.Start(":8080"))
 }
